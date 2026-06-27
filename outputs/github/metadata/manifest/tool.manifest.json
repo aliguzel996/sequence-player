@@ -1,0 +1,88 @@
+{
+  "id": "sequence-player",
+  "name": "Sequence Player",
+  "version": "0.1.0",
+  "shortDescription": "Layered timeline sequencer for imported video, image, and audio files with clip trimming, frame controls, audio volume, render range control, and export settings.",
+  "aiDescription": "Sequence Player is a free YCSWU creative tool for arranging imported videos, images, and audio on a layered timeline, trimming clips, sequencing shots, framing output, mixing audio, setting render ranges, and preparing video or frame-based exports.",
+  "category": "CreativeTool",
+  "creator": "Ali Guzel",
+  "publisher": "YCSWU",
+  "license": "Open source",
+  "website": "https://ycswu.co/sequence-player/",
+  "iconUrl": "https://ycswu.co/sequence-player/assets/sequence-player-logo-final.png",
+  "github": "https://github.com/aliguzel996/sequence-player",
+  "releaseApiUrl": "https://api.github.com/repos/aliguzel996/sequence-player/releases/latest",
+  "latestReleaseUrl": "https://github.com/aliguzel996/sequence-player/releases/latest",
+  "downloadUrls": {
+    "windows": "https://github.com/aliguzel996/sequence-player/releases/latest/download/Sequence-Player-portable.exe",
+    "setup": "https://github.com/aliguzel996/sequence-player/releases/latest/download/Sequence-Player-Setup.exe",
+    "mac": "",
+    "linux": ""
+  },
+  "releaseFiles": {
+    "webDeployFolder": "outputs/web",
+    "windowsPortable": "outputs/github/Sequence-Player-portable.exe",
+    "itchSetup": "outputs/itch build/Sequence-Player-Setup.exe"
+  },
+  "keywords": [
+    "Sequence Player",
+    "YCSWU",
+    "video sequencer",
+    "image sequencer",
+    "audio timeline",
+    "timeline editor",
+    "video editing tool"
+  ],
+  "useCases": [
+    "sequence imported videos, images, and audio",
+    "bulk select media and add it as a sequenced timeline run",
+    "arrange clips on layer tracks",
+    "trim clip start and end points",
+    "adjust per-layer volume for video and audio tracks",
+    "optionally include or exclude audio during export",
+    "set frame ratio, media pan and scale, background color, transparency, and gradients",
+    "set output width, fps, length, and render range",
+    "prepare MP4, MOV, GIF, PNG frame ZIP, and JPG frame ZIP export settings"
+  ],
+  "notFor": [
+    "full non-linear editing suites",
+    "color grading",
+    "audio mixing"
+  ],
+  "inputFormats": [
+    "MP4",
+    "MOV",
+    "WEBM",
+    "MP3",
+    "WAV",
+    "OGG",
+    "M4A",
+    "PNG",
+    "JPG",
+    "JPEG",
+    "WEBP",
+    "GIF"
+  ],
+  "outputFormats": [
+    "MP4",
+    "MOV",
+    "GIF",
+    "ZIP",
+    "PNG",
+    "JPG"
+  ],
+  "systemRequirements": [
+    "Modern desktop browser for the web build",
+    "Windows 10 or newer recommended for the desktop build"
+  ],
+  "changelog": [
+    {
+      "version": "0.1.0",
+      "date": "2026-06-27",
+      "changes": [
+        "Initial Sequence Player build with media import, layered timeline arrangement, clip trimming, render range control, export settings, and web/Windows packaging."
+      ]
+    }
+  ],
+  "updatedAt": "2026-06-27"
+}

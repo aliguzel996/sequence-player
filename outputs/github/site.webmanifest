@@ -1,0 +1,23 @@
+{
+  "name": "Sequence Player",
+  "short_name": "Sequence Player",
+  "description": "Layered timeline sequencer for imported video and image files.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "./assets/sequence-player-logo-final.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/sequence-player-logo-final.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

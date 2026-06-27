@@ -1,0 +1,33 @@
+{
+  "appId": "com.sequenceplayer.desktop",
+  "productName": "Sequence Player",
+  "asar": true,
+  "directories": {
+    "output": "dist/itch"
+  },
+  "files": [
+    "app/**/*",
+    "electron/**/*",
+    "package.json"
+  ],
+  "win": {
+    "icon": "app/assets/sequence-player-logo-final.ico",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "Sequence-Player-Setup-${version}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Sequence Player"
+  }
+}

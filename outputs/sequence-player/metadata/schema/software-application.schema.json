@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Sequence Player",
+  "description": "A YCSWU creative tool for arranging imported video, image, and audio files on a layered timeline, trimming clips, sequencing shots, framing output, mixing audio, and preparing render ranges.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Web, Windows",
+  "creator": {
+    "@type": "Person",
+    "name": "Ali Guzel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "YCSWU"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "softwareVersion": "0.1.0",
+  "url": "https://ycswu.co/sequence-player/",
+  "image": "https://ycswu.co/sequence-player/assets/sequence-player-logo-final.png",
+  "downloadUrl": "https://github.com/aliguzel996/sequence-player/releases/latest/download/Sequence-Player-portable.exe",
+  "installUrl": "https://github.com/aliguzel996/sequence-player/releases/latest/download/Sequence-Player-Setup.exe",
+  "codeRepository": "https://github.com/aliguzel996/sequence-player",
+  "fileFormat": [
+    "MP4",
+    "MOV",
+    "WEBM",
+    "PNG",
+    "JPG",
+    "JPEG",
+    "WEBP",
+    "GIF",
+    "ZIP"
+  ],
+  "dateModified": "2026-06-27"
+}

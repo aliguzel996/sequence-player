@@ -1,0 +1,25 @@
+{
+  "appId": "com.sequenceplayer.desktop",
+  "productName": "Sequence Player",
+  "asar": true,
+  "directories": {
+    "output": "dist/github"
+  },
+  "files": [
+    "app/**/*",
+    "electron/**/*",
+    "package.json"
+  ],
+  "win": {
+    "icon": "app/assets/sequence-player-logo-final.ico",
+    "target": [
+      {
+        "target": "portable",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "Sequence-Player-${version}-portable.${ext}"
+  }
+}

@@ -1,0 +1,8 @@
+work/sequence-player-desktop/node_modules/
+work/sequence-player-desktop/dist/
+work/sequence-player-desktop/app/
+
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

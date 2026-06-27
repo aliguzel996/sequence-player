@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sequence Player - Video and Image Timeline Sequencer | YCSWU</title>
+    <meta
+      name="description"
+      content="Sequence Player is a YCSWU creative tool for arranging imported video and image files on an After Effects style layer timeline, trimming clips, sequencing shots, and preparing render ranges."
+    />
+    <meta name="application-name" content="Sequence Player" />
+    <meta name="author" content="Ali Guzel" />
+    <meta name="publisher" content="YCSWU" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="Sequence Player, YCSWU, video sequencer, image sequencer, timeline editor, video editing tool, creative tool"
+    />
+    <link rel="canonical" href="https://ycswu.co/sequence-player/" />
+    <link rel="icon" type="image/svg+xml" href="./assets/sequence-player-logo-final.svg" />
+    <link rel="apple-touch-icon" href="./assets/sequence-player-logo-final.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="YCSWU" />
+    <meta property="og:title" content="Sequence Player - Video and Image Timeline Sequencer" />
+    <meta
+      property="og:description"
+      content="Arrange video and image files on a layered timeline, trim clips, sequence shots, control render range, and prepare exports in a clean black and white editing workspace."
+    />
+    <meta property="og:url" content="https://ycswu.co/sequence-player/" />
+    <meta property="og:image" content="https://ycswu.co/sequence-player/assets/sequence-player-logo-final.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sequence Player - Video and Image Timeline Sequencer" />
+    <meta
+      name="twitter:description"
+      content="A YCSWU timeline sequencing tool for imported video and image files."
+    />
+    <meta name="twitter:image" content="https://ycswu.co/sequence-player/assets/sequence-player-logo-final.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Sequence Player",
+        "description": "A YCSWU creative tool for arranging imported video and image files on a layered timeline, trimming clips, sequencing shots, and preparing render ranges.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web, Windows",
+        "creator": {
+          "@type": "Person",
+          "name": "Ali Guzel"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "YCSWU"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "softwareVersion": "0.1.0",
+        "url": "https://ycswu.co/sequence-player/",
+        "image": "https://ycswu.co/sequence-player/assets/sequence-player-logo-final.png",
+        "codeRepository": "https://github.com/aliguzel996/sequence-player",
+        "fileFormat": ["MP4", "MOV", "WEBM", "PNG", "JPG", "JPEG", "WEBP", "GIF", "ZIP"],
+        "dateModified": "2026-06-27"
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="appShell">
+      <section class="panel library-panel" id="libraryPanel">
+        <div class="topline">
+          <div>
+            <div class="status-line" id="mediaStatus">0 media / 0 clips</div>
+          </div>
+          <button class="chip chip-icon" id="importButton" type="button" title="import media">+</button>
+          <input
+            class="visually-hidden"
+            id="fileInput"
+            type="file"
+            accept="video/*,image/*,audio/*"
+            multiple
+          />
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+          <span>drop video / image / audio files</span>
+        </div>
+
+        <div class="panel-head">
+          <span>media pool</span>
+          <span class="panel-actions">
+            <button class="chip chip-small" id="selectAllMediaButton" type="button">select all</button>
+            <button class="chip chip-small" id="clearMediaButton" type="button">clear</button>
+          </span>
+        </div>
+
+        <div class="asset-list" id="assetList" aria-label="imported media list"></div>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="preview-head">
+          <div>
+            <div class="panel-label">preview</div>
+            <div class="status-line status-left" id="previewStatus">no clip at playhead</div>
+          </div>
+
+          <div class="frame-controls">
+            <div class="frame-ratios" id="frameRatioControls">
+              <button class="chip chip-small frame-ratio-button" data-frame-ratio="1:1" type="button">1:1</button>
+              <button class="chip chip-small frame-ratio-button" data-frame-ratio="16:9" type="button">16:9</button>
+              <button class="chip chip-small frame-ratio-button" data-frame-ratio="4:5" type="button">4:5</button>
+              <button class="chip chip-small frame-ratio-button" data-frame-ratio="3:4" type="button">3:4</button>
+            </div>
+            <label class="frame-setting">
+              <span>scale</span>
+              <input id="mediaScaleInput" max="3" min="0.25" step="0.01" type="range" value="1" />
+            </label>
+            <button class="chip chip-small" id="mediaResetButton" type="button">reset</button>
+            <div class="background-controls">
+              <button class="chip chip-small" data-bg-preset="#000000" type="button">black</button>
+              <button class="chip chip-small" data-bg-preset="#ffffff" type="button">white</button>
+              <button class="chip chip-small" data-bg-transparent type="button">transparent</button>
+              <input class="color-input" id="backgroundColorInput" type="color" value="#ffffff" title="background color" />
+              <button class="chip chip-small" id="gradientToggleButton" type="button">gradient</button>
+            </div>
+          </div>
+
+          <div class="preview-time" id="timeReadout">00:00.00 / 00:12.00</div>
+        </div>
+
+        <div class="gradient-panel" id="gradientPanel" hidden>
+          <label class="frame-setting">
+            <span>type</span>
+            <select id="gradientTypeInput">
+              <option value="linear">linear</option>
+              <option value="radial">radial</option>
+              <option value="circular">circular</option>
+              <option value="free">free</option>
+            </select>
+          </label>
+          <label class="frame-setting">
+            <span>angle</span>
+            <input id="gradientAngleInput" max="360" min="0" step="1" type="number" value="0" />
+          </label>
+          <label class="frame-setting">
+            <span>scale</span>
+            <input id="gradientScaleInput" max="300" min="20" step="5" type="number" value="100" />
+          </label>
+          <input class="color-input" id="gradientColorInput" type="color" value="#000000" title="gradient color" />
+          <button class="chip chip-small" id="gradientAddButton" type="button">add color</button>
+          <button class="chip chip-small" id="gradientRemoveButton" type="button">remove color</button>
+          <div class="gradient-stop-list" id="gradientStopList"></div>
+        </div>
+
+        <div class="viewer-frame" id="viewerFrame">
+          <div class="viewer-grid"></div>
+          <div class="viewer-stage" id="viewerStage">
+            <div class="preview-visual-layer" id="previewVisualLayer"></div>
+            <video class="preview-media preview-video" id="previewVideo" muted playsinline></video>
+            <audio id="previewAudio" preload="metadata"></audio>
+            <img class="preview-media preview-image" id="previewImage" alt="" />
+            <div class="viewer-placeholder" id="viewerPlaceholder">
+              <span>import files, then drag them to the timeline</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="transport">
+          <button class="transport-button transport-main" id="playButton" type="button" title="play / pause">play</button>
+          <button class="transport-button" id="stopButton" type="button" title="stop">stop</button>
+          <input class="playhead-range" id="playheadRange" min="0" step="0.01" type="range" value="0" />
+        </div>
+      </section>
+
+      <section class="panel actions-panel">
+        <div class="topline">
+          <div class="panel-label">actions</div>
+          <button class="ui-button export-main-button" id="exportButton" type="button">export</button>
+        </div>
+
+        <div class="export-settings-panel">
+          <button class="export-format-toggle" id="exportPanelToggle" type="button" aria-controls="exportOptionsPanel" aria-expanded="false">
+            <span>export format</span>
+            <strong id="exportFormatLabel">mp4 optimized</strong>
+          </button>
+          <div class="export-options-panel" id="exportOptionsPanel" hidden>
+            <div class="format-grid" id="formatGrid">
+              <button class="chip format-option" data-format="zip-png" type="button">zip frames png</button>
+              <button class="chip format-option" data-format="zip-jpg" type="button">zip frames jpg</button>
+              <button class="chip format-option" data-format="gif" type="button">gif</button>
+              <button class="chip format-option" data-format="mov" type="button">mov lossless</button>
+              <button class="chip format-option selected" data-format="mp4" type="button">mp4 optimized</button>
+            </div>
+            <label class="setting-row">
+              <span>quality</span>
+              <input id="qualityInput" max="100" min="35" step="1" type="number" value="82" />
+            </label>
+            <label class="setting-row">
+              <span>bitrate mbps</span>
+              <input id="bitrateInput" max="80" min="1" step="1" type="number" value="12" />
+            </label>
+            <label class="setting-row">
+              <span>optimize</span>
+              <input id="optimizeInput" checked type="checkbox" />
+            </label>
+          </div>
+          <label class="setting-row">
+            <span>output width</span>
+            <input id="outputWidthInput" min="320" max="1920" step="16" type="number" value="1280" />
+          </label>
+          <label class="setting-row">
+            <span>output fps</span>
+            <input id="fpsInput" min="12" max="60" step="1" type="number" value="24" />
+          </label>
+          <label class="setting-row">
+            <span>output length</span>
+            <input id="outputLengthInput" min="0" step="0.25" type="number" placeholder="auto" />
+          </label>
+          <label class="setting-row">
+            <span>include audio</span>
+            <input id="includeAudioInput" checked type="checkbox" />
+          </label>
+          <div class="render-status" id="renderStatus">choose format / mp4 optimized</div>
+        </div>
+
+        <div class="actions-scroll">
+          <details class="actions-dropdown">
+            <summary class="actions-dropdown-summary">actions</summary>
+            <div class="action-grid">
+              <button class="ui-button" data-action="sequence" type="button">sequence layers</button>
+              <button class="ui-button ui-button-light" data-action="stack" type="button">stack at playhead</button>
+              <button class="ui-button ui-button-light" data-action="addSelected" type="button">add selected</button>
+              <button class="ui-button ui-button-light" data-action="split" type="button">split clip</button>
+              <button class="ui-button ui-button-light" data-action="duplicate" type="button">duplicate clip</button>
+              <button class="ui-button ui-button-light" data-action="fit" type="button">fit timeline</button>
+              <button class="ui-button ui-button-danger" data-action="clearTimeline" type="button">clear timeline</button>
+            </div>
+          </details>
+
+        </div>
+      </section>
+
+      <section class="panel timeline-panel">
+        <div class="timeline-topline">
+          <div>
+            <div class="panel-label">timeline</div>
+            <div class="status-line status-left" id="timelineStatus">drop clips below</div>
+          </div>
+          <div class="timeline-quick-settings">
+            <label class="timeline-inline-setting">
+              <span>image length</span>
+              <input id="imageGridInput" min="1" step="0.25" type="number" value="3" />
+            </label>
+            <button class="chip chip-small timeline-apply-button" id="applyImageGridButton" type="button">apply all</button>
+            <label class="timeline-inline-setting timeline-checkbox-setting">
+              <span>snap grid</span>
+              <input id="snapInput" checked type="checkbox" />
+            </label>
+            <label class="timeline-inline-setting timeline-zoom-setting">
+              <span>zoom</span>
+              <input id="zoomInput" max="160" min="38" step="1" type="range" value="82" />
+            </label>
+          </div>
+          <div class="timeline-tools">
+            <label class="timeline-setting">
+              <span>sec per grid</span>
+              <input id="gridSecondsInput" inputmode="decimal" type="text" value="1" />
+            </label>
+            <button class="chip chip-small" id="gridSecondsDownButton" type="button">-</button>
+            <button class="chip chip-small" id="gridSecondsUpButton" type="button">+</button>
+          </div>
+        </div>
+
+        <div class="timeline-shell">
+          <div class="track-corner">layers</div>
+          <div class="timeline-ruler" id="timelineRuler">
+            <div class="ruler-content" id="rulerContent">
+              <div class="render-range" id="renderRange">
+                <div class="render-range-fill" id="renderRangeFill"></div>
+                <div class="render-range-handle" id="renderRangeHandle" title="render end"></div>
+              </div>
+            </div>
+          </div>
+          <div class="track-labels" id="trackLabels"></div>
+          <div class="timeline-scroll" id="timelineScroll">
+            <div class="timeline-content" id="timelineContent">
+              <div class="timeline-grid" id="timelineGrid"></div>
+              <div class="timeline-drop-hint" id="timelineDropHint">drop here</div>
+              <div class="playhead" id="playhead"></div>
+              <div class="clips-layer" id="clipsLayer"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
