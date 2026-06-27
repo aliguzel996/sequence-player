@@ -1,8 +1,8 @@
 # Sequence Player
 
-Sequence Player is a free YCSWU creative tool for arranging imported videos and images on a layered timeline, trimming clips, sequencing shots, setting render ranges, and preparing video or frame-based exports.
+Sequence Player is a free YCSWU creative tool for arranging imported videos, images, and audio on a layered timeline, trimming clips, sequencing shots, mixing layer audio, setting render ranges, and preparing video or frame-based exports.
 
-Layered timeline sequencer for imported video and image files with clip trimming, render range control, and export settings.
+Layered timeline sequencer for imported video, image, and audio files with clip trimming, frame controls, layer volume, render range control, and export settings.
 
 Creator: Ali Guzel
 Publisher: YCSWU
@@ -13,7 +13,7 @@ Release API: https://api.github.com/repos/aliguzel996/sequence-player/releases/l
 Windows portable: https://github.com/aliguzel996/sequence-player/releases/latest/download/Sequence-Player-portable.exe
 Setup: https://github.com/aliguzel996/sequence-player/releases/latest/download/Sequence-Player-Setup.exe
 
-Input formats: MP4, MOV, WEBM, PNG, JPG, JPEG, WEBP, GIF
+Input formats: MP4, MOV, WEBM, MP3, WAV, OGG, M4A, PNG, JPG, JPEG, WEBP, GIF
 Output settings: MP4, MOV, GIF, ZIP frames PNG, ZIP frames JPG
 Platforms: Web, Windows
 

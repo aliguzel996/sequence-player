@@ -46,9 +46,12 @@ copyFileSync(itchSetup, join(itchOut, "Sequence-Player-Setup.exe"));
 
 for (const file of [
   "README.md",
+  "DESCRIPTION.md",
+  "RELEASE_NOTES.md",
   "AI.md",
   "llms.txt",
   "app.manifest.json",
+  "favicon.ico",
   "robots.txt",
   "sitemap.xml",
   "site.webmanifest",
